@@ -29,7 +29,9 @@ This mini app demonstrates how to create a simple NFT minting experience within 
 
 ## Configuration
 
-To configure the mini app for your own NFT collection, edit the `src/config.ts` file. You'll need to set:
+To configure the mini app for your own NFT collection, copy `.env.example` to `.env` and update the values. These environment variables control the default image and contract details used in `src/config.ts`.
+
+Alternatively you can edit `src/config.ts` directly. You'll need to set:
 
 - Collection name and description
 - Image URL for the NFT

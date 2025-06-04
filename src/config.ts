@@ -4,11 +4,14 @@ import { base } from "viem/chains";
 /**
  * NFT Metadata Configuration
  */
+const DEFAULT_IMAGE_URL = "https://mint-demo.replit.app/nft.png";
+const DEFAULT_APP_URL = "https://mint-demo.replit.app/";
+
 export const mintMetadata = {
   name: "Mini App Mint Demo",
   description:
     "A simple example of an onchain action in a Farcaster mini app. Tap the button below to mint this image.",
-  imageUrl: "https://mint-demo.replit.app/nft.png",
+  imageUrl: process.env.VITE_ART_URL ?? DEFAULT_IMAGE_URL,
   creator: {
     name: "horsefacts.eth",
     fid: 3621,
@@ -25,7 +28,8 @@ export const mintMetadata = {
  * Contract Configuration
  */
 export const contractConfig = {
-  address: "0x8087039152c472Fa74F47398628fF002994056EA" as Address,
+  address: (process.env.VITE_CONTRACT_ADDRESS as Address) ??
+    ("0x8087039152c472Fa74F47398628fF002994056EA" as Address),
   chain: base,
   abi: [
     { inputs: [], name: "MintPaused", type: "error" },
@@ -74,8 +78,9 @@ export const contractConfig = {
       type: "event",
     },
   ] as const as Abi,
-  vectorId: 6506,
-  referrer: "0x075b108fC0a6426F9dEC9A5c18E87eB577D1346a" as Address,
+  vectorId: Number(process.env.VITE_VECTOR_ID ?? 6506),
+  referrer: (process.env.VITE_REFERRER_ADDRESS as Address) ??
+    ("0x075b108fC0a6426F9dEC9A5c18E87eB577D1346a" as Address),
 } as const;
 
 /**
@@ -83,13 +88,13 @@ export const contractConfig = {
  */
 export const embedConfig = {
   version: "next",
-  imageUrl: "https://mint-demo.replit.app/nft.png",
+  imageUrl: process.env.VITE_ART_URL ?? DEFAULT_IMAGE_URL,
   button: {
     title: "Mint",
     action: {
       type: "launch_frame",
       name: "NFT Mint",
-      url: "https://mint-demo.replit.app/",
+      url: process.env.VITE_APP_URL ?? DEFAULT_APP_URL,
     },
   },
 } as const;
