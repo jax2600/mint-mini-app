@@ -39,20 +39,11 @@ Alternatively you can edit `src/config.ts` directly. You'll need to set:
 - Chain and pricing information
 - Mint timing settings
 
-You'll also need to update the contract address and ABI in `src/contracts.ts`.
+You'll also need to update the contract address and ABI in `src/config.ts`.
 
 ## Frame Embed
 
-The Farcaster Frame meta tag is defined in `index.html`. Before deploying your app, update this tag with your actual deployment URL:
-
-```html
-<head>
-  <!-- other tags -->
-  <meta name="fc:frame" content='{"version":"next","imageUrl":"/placeholder-nft.png","button":{"title":"Open","action":{"type":"launch_frame","name":"NFT Mint","url":"https://your-app-url.com"}}}' /> 
-</head>
-```
-
-If you change your NFT image or name in the config, be sure to update this tag as well to keep them in sync.
+The Farcaster Frame meta tag is injected automatically by `vite.config.ts` using the embed configuration from `src/config.ts`. Set `VITE_APP_URL` in your environment or update the embed values in `config.ts` as needed. There is no need to manually edit `index.html`.
 
 ## License
 
