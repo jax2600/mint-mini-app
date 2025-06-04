@@ -7,9 +7,9 @@
   "frame": {
     "version": "1",
     "name": "Mint Demo",
-    "iconUrl": "https://mint-demo.replit.app/icon.png",
-    "homeUrl": "https://mint-demo.replit.app/",
-    "imageUrl": "https://mint-demo.replit.app/nft.png",
+    "iconUrl": "https://example.com/icon.png",
+    "homeUrl": "https://example.com/",
+    "imageUrl": "https://example.com/nft.png",
     "buttonTitle": "Mint",
     "splashImageUrl": "https://mint-demo.replit.app/icon.png",
     "splashBackgroundColor": "#eeccff"
